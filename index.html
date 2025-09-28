@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cruisora — Track Cruise Fares. Save More.</title>
+  <meta name="description" content="Cruisora helps you compare cruises, normalize fares per night/person, and get price‑drop alerts so you book at the right time." />
+  <link rel="canonical" href="https://cruisora.com/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Cruisora — Track Cruise Fares. Save More." />
+  <meta property="og:description" content="Compare across lines, see per‑night/person pricing, and get price‑drop alerts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1526662092594-e98c1e356d6a?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:image:alt" content="Cruise ship at sea" />
+  <meta property="og:url" content="https://cruisora.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand:#0d3b66; --accent:#06b6d4; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .bg-grid {
+      background-image: radial-gradient(circle at 1px 1px, rgba(13,59,102,.15) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+  <!-- Announcement -->
+  <div class="bg-cyan-50 text-cyan-900 text-sm py-2 px-4 text-center">
+    Beta waitlist is open — get early access pricing alerts.
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-slate-100">
+    <div class="mx-auto max-w-6xl px-4 py-5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 14c4-2 8-2 12 0 3 1.5 5 1.5 6 0v3c-1 1.5-3 1.5-6 0-4-2-8-2-12 0v-3Z" fill="var(--brand)"/><path d="M3 10c4-2 8-2 12 0 3 1.5 5 1.5 6 0v2c-1 1.5-3 1.5-6 0-4-2-8-2-12 0v-2Z" fill="var(--accent)"/></svg>
+        <span class="font-semibold text-lg">Cruisora</span>
+      </a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a href="#how" class="hover:underline">How it works</a>
+        <a href="#waitlist" class="hover:underline">Join waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative">
+    <div class="absolute inset-0 -z-10 bg-grid opacity-30"></div>
+    <div class="mx-auto max-w-6xl px-4 py-16 lg:py-24 grid gap-10 lg:grid-cols-2 items-center">
+      <div>
+        <h1 class="text-4xl/tight lg:text-5xl font-bold tracking-tight">Track Cruise Fares. <span class="text-cyan-600">Sail Smarter.</span></h1>
+        <p class="mt-4 text-slate-600 text-lg">Compare across lines, see per‑night/person pricing, and get price‑drop alerts so you book at the right time.</p>
+        <form id="waitlist" action="https://formspree.io/f/FORM_ID" method="POST" class="mt-6 flex w-full max-w-xl items-stretch gap-3">
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" type="email" name="email" required placeholder="you@email.com" class="w-full rounded-xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+          <button class="rounded-xl bg-cyan-600 px-5 py-3 text-white font-semibold hover:bg-cyan-700">Join waitlist</button>
+        </form>
+        <p class="mt-2 text-xs text-slate-500">No spam. We'll email you when beta opens.</p>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1526662092594-e98c1e356d6a?q=80&w=1400&auto=format&fit=crop" alt="Cruise ship at sea" class="w-full h-80 object-cover">
+        </div>
+        <div class="absolute -bottom-6 left-6 bg-white/90 backdrop-blur rounded-xl border border-slate-200 shadow px-4 py-3">
+          <p class="text-sm"><span class="font-semibold">Sample alert:</span> “7‑night Caribbean dropped to $799 pp”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-2xl font-semibold">How it works</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="p-6 rounded-2xl border border-slate-200">
+        <div class="text-cyan-600 font-semibold">1 · Search</div>
+        <p class="mt-2 text-slate-600">Filter by destination, dates, length, ports, and cruise lines.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-200">
+        <div class="text-cyan-600 font-semibold">2 · Compare</div>
+        <p class="mt-2 text-slate-600">See normalized prices (per night/per person) and ship features.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-200">
+        <div class="text-cyan-600 font-semibold">3 · Track & Book</div>
+        <p class="mt-2 text-slate-600">Get price‑drop alerts and book via trusted partners.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-100">
+    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500 flex items-center justify-between">
+      <p>© <span id="y"></span> Cruisora • <a class="hover:underline" href="#">Privacy</a> • <a class="hover:underline" href="#">Terms</a></p>
+      <div class="flex gap-4">
+        <a class="hover:underline" href="#" aria-label="Instagram">Instagram</a>
+        <a class="hover:underline" href="#" aria-label="TikTok">TikTok</a>
+        <a class="hover:underline" href="#" aria-label="Twitter">Twitter</a>
+        <a class="hover:underline" href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
