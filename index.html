@@ -11,8 +11,8 @@
   <meta property="og:title" content="Cruisora — Track Cruise Fares. Save More." />
   <meta property="og:description" content="Compare across lines, see per‑night/person pricing, and get price‑drop alerts." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1526662092594-e98c1e356d6a?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:image:alt" content="Cruise ship at sea" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop" />
+  <meta property="og:image:alt" content="Cruise ship in turquoise Caribbean water" />
   <meta property="og:url" content="https://cruisora.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -20,56 +20,65 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --brand:#0d3b66; --accent:#06b6d4; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
-    .bg-grid {
-      background-image: radial-gradient(circle at 1px 1px, rgba(13,59,102,.15) 1px, transparent 0);
-      background-size: 24px 24px;
+    :root {
+      --brand:#0a2540;   /* deep navy */
+      --accent:#00b3ff;  /* punchy cyan */
+      --ink:#0b1220;     /* near-black text */
     }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans"; color: var(--ink); }
+    .shadow-xl-soft { box-shadow: 0 15px 40px rgba(0,0,0,.25); }
+    .btn-primary { background: var(--accent); color: #041018; }
+    .btn-primary:hover { filter: brightness(0.95); }
+    .chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
   </style>
 </head>
-<body class="bg-white text-slate-900">
-  <!-- Announcement -->
-  <div class="bg-cyan-50 text-cyan-900 text-sm py-2 px-4 text-center">
-    Beta waitlist is open — get early access pricing alerts.
+<body class="bg-white">
+  <!-- Header (light) -->
+<header class="border-b border-slate-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
+  <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 14c4-2 8-2 12 0 3 1.5 5 1.5 6 0v3c-1 1.5-3 1.5-6 0-4-2-8-2-12 0v-3Z" fill="var(--brand)"/>
+        <path d="M3 10c4-2 8-2 12 0 3 1.5 5 1.5 6 0v2c-1 1.5-3 1.5-6 0-4-2-8-2-12 0v-2Z" fill="var(--accent)"/>
+      </svg>
+      <span class="font-extrabold text-2xl tracking-tight" style="color:var(--brand)">Cruisora</span>
+    </a>
+    <nav class="hidden sm:flex gap-6 text-sm">
+      <a href="#how" class="hover:underline text-slate-700">How it works</a>
+      <a href="#waitlist" class="hover:underline text-slate-700">Join waitlist</a>
+    </nav>
   </div>
+</header>
 
-  <!-- Header -->
-  <header class="border-b border-slate-100">
-    <div class="mx-auto max-w-6xl px-4 py-5 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 14c4-2 8-2 12 0 3 1.5 5 1.5 6 0v3c-1 1.5-3 1.5-6 0-4-2-8-2-12 0v-3Z" fill="var(--brand)"/><path d="M3 10c4-2 8-2 12 0 3 1.5 5 1.5 6 0v2c-1 1.5-3 1.5-6 0-4-2-8-2-12 0v-2Z" fill="var(--accent)"/></svg>
-        <span class="font-semibold text-lg">Cruisora</span>
-      </a>
-      <nav class="hidden sm:flex gap-6 text-sm">
-        <a href="#how" class="hover:underline">How it works</a>
-        <a href="#waitlist" class="hover:underline">Join waitlist</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="relative">
-    <div class="absolute inset-0 -z-10 bg-grid opacity-30"></div>
+  <!-- Hero (dark high-contrast) -->
+  <section class="relative overflow-hidden" style="background: radial-gradient(800px 400px at 10% -10%, rgba(0,179,255,.25), transparent), radial-gradient(900px 500px at 110% 10%, rgba(10,37,64,.60), rgba(10,37,64,.95));">
     <div class="mx-auto max-w-6xl px-4 py-16 lg:py-24 grid gap-10 lg:grid-cols-2 items-center">
-      <div>
-        <h1 class="text-4xl/tight lg:text-5xl font-bold tracking-tight">Track Cruise Fares. <span class="text-cyan-600">Sail Smarter.</span></h1>
-        <p class="mt-4 text-slate-600 text-lg">Compare across lines, see per‑night/person pricing, and get price‑drop alerts so you book at the right time.</p>
+      <div class="text-white">
+        <span class="chip inline-block rounded-full px-3 py-1 text-xs uppercase tracking-wider">Beta waitlist open</span>
+        <h1 class="mt-4 text-4xl/tight lg:text-6xl font-extrabold tracking-tight">Track Cruise Fares.<br><span style="color:var(--accent)">Sail Smarter.</span></h1>
+        <p class="mt-4 text-lg text-white/90">Compare across lines, see per‑night/person pricing, and get instant price‑drop alerts so you book at the right time.</p>
         <form id="waitlist" action="https://formspree.io/f/FORM_ID" method="POST" class="mt-6 flex w-full max-w-xl items-stretch gap-3">
           <label class="sr-only" for="email">Email</label>
-          <input id="email" type="email" name="email" required placeholder="you@email.com" class="w-full rounded-xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
-          <button class="rounded-xl bg-cyan-600 px-5 py-3 text-white font-semibold hover:bg-cyan-700">Join waitlist</button>
+          <input id="email" type="email" name="email" required placeholder="you@email.com"
+                 class="w-full rounded-xl border border-white/20 bg-white/95 px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-cyan-300" />
+          <button class="rounded-xl btn-primary px-6 py-3 font-semibold shadow-xl-soft">Join waitlist</button>
         </form>
-        <p class="mt-2 text-xs text-slate-500">No spam. We'll email you when beta opens.</p>
+        <p class="mt-2 text-xs text-white/70">No spam. We’ll email you when beta opens.</p>
+        <div class="mt-6 flex gap-3 text-white/70 text-sm">
+          <span class="chip rounded-full px-3 py-1">Per‑night/person pricing</span>
+          <span class="chip rounded-full px-3 py-1">Fare‑drop alerts</span>
+          <span class="chip rounded-full px-3 py-1">Multi‑line comparison</span>
+        </div>
       </div>
       <div class="relative">
-        <div class="rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1526662092594-e98c1e356d6a?q=80&w=1400&auto=format&fit=crop" alt="Cruise ship at sea" class="w-full h-80 object-cover">
+        <div class="rounded-2xl overflow-hidden shadow-xl-soft ring-1 ring-white/10">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop"
+               alt="Cruise ship in turquoise Caribbean water" class="w-full h-96 object-cover">
         </div>
         <div class="absolute -bottom-6 left-6 bg-white/90 backdrop-blur rounded-xl border border-slate-200 shadow px-4 py-3">
-          <p class="text-sm"><span class="font-semibold">Sample alert:</span> “7‑night Caribbean dropped to $799 pp”</p>
+          <p class="text-sm text-slate-800"><span class="font-semibold">Live alert:</span> “7‑night Caribbean dropped to $799 pp”</p>
         </div>
       </div>
     </div>
@@ -77,26 +86,26 @@
 
   <!-- How it works -->
   <section id="how" class="mx-auto max-w-6xl px-4 py-16">
-    <h2 class="text-2xl font-semibold">How it works</h2>
+    <h2 class="text-2xl font-extrabold tracking-tight" style="color:var(--brand)">How it works</h2>
     <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="p-6 rounded-2xl border border-slate-200">
-        <div class="text-cyan-600 font-semibold">1 · Search</div>
-        <p class="mt-2 text-slate-600">Filter by destination, dates, length, ports, and cruise lines.</p>
+      <div class="p-6 rounded-2xl border border-slate-300 shadow-sm hover:shadow-md transition-shadow">
+        <div class="font-semibold" style="color:var(--brand)">1 · Search</div>
+        <p class="mt-2 text-slate-700">Filter by destination, dates, length, ports, and cruise lines.</p>
       </div>
-      <div class="p-6 rounded-2xl border border-slate-200">
-        <div class="text-cyan-600 font-semibold">2 · Compare</div>
-        <p class="mt-2 text-slate-600">See normalized prices (per night/per person) and ship features.</p>
+      <div class="p-6 rounded-2xl border border-slate-300 shadow-sm hover:shadow-md transition-shadow">
+        <div class="font-semibold" style="color:var(--brand)">2 · Compare</div>
+        <p class="mt-2 text-slate-700">See normalized prices (per night/per person) and ship features.</p>
       </div>
-      <div class="p-6 rounded-2xl border border-slate-200">
-        <div class="text-cyan-600 font-semibold">3 · Track & Book</div>
-        <p class="mt-2 text-slate-600">Get price‑drop alerts and book via trusted partners.</p>
+      <div class="p-6 rounded-2xl border border-slate-300 shadow-sm hover:shadow-md transition-shadow">
+        <div class="font-semibold" style="color:var(--brand)">3 · Track & Book</div>
+        <p class="mt-2 text-slate-700">Get price‑drop alerts and book via trusted partners.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-100">
-    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500 flex items-center justify-between">
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-600 flex items-center justify-between">
       <p>© <span id="y"></span> Cruisora • <a class="hover:underline" href="#">Privacy</a> • <a class="hover:underline" href="#">Terms</a></p>
       <div class="flex gap-4">
         <a class="hover:underline" href="#" aria-label="Instagram">Instagram</a>
@@ -107,8 +116,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
