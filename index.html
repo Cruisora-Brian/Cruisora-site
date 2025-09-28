@@ -86,59 +86,73 @@
 
 <!-- How it works -->
 <section id="how" class="mx-auto max-w-6xl px-4 py-20">
-  <h2 class="text-3xl font-extrabold tracking-tight text-center mb-10" style="color:var(--brand)">How It Works</h2>
+  <h2 class="text-3xl font-extrabold tracking-tight text-center mb-12" style="color:var(--brand)">
+    How It Works
+  </h2>
   <div class="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
     <!-- Decorative background swoosh -->
     <div class="absolute -z-10 left-1/2 top-0 w-[90%] h-full bg-gradient-to-tr from-[var(--brand-faint)] to-transparent rounded-3xl blur-2xl opacity-20"></div>
     <!-- Step 1 -->
-    <div class="relative p-8 rounded-3xl border border-slate-200 shadow-sm bg-white flex flex-col items-center hover:shadow-lg transition-shadow">
-      <div class="bg-[var(--brand-faint)] rounded-full p-4 mb-5 shadow-sm flex items-center justify-center">
-        <!-- Magnifying glass icon -->
-        <svg class="w-10 h-10 text-[var(--brand)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="11" cy="11" r="7" stroke="currentColor"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor"/>
+    <div class="relative p-8 rounded-3xl border-0 shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white flex flex-col items-start hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
+      <div class="flex items-center justify-center mb-6 w-14 h-14 rounded-xl bg-[var(--brand)]/10 shadow-inner">
+        <!-- Custom Search Icon: Map Pin + Magnifier -->
+        <svg class="w-9 h-9 text-[var(--brand)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 32">
+          <circle cx="14" cy="14" r="7" stroke="currentColor" />
+          <line x1="27" y1="27" x2="20.5" y2="20.5" stroke="currentColor" stroke-linecap="round"/>
+          <path d="M14 22c4-6 4-8 0-12-4 4-4 6 0 12z" stroke="currentColor" />
         </svg>
       </div>
       <div class="font-bold text-xl mb-2" style="color:var(--brand)">1 · Smart Search</div>
-      <p class="text-slate-700 text-center mb-3">Pinpoint your perfect cruise with our powerful filters. Choose destinations, dates, length, ports, lines, amenities, and more.</p>
-      <div class="text-xs font-semibold text-[var(--brand)] bg-[var(--brand-faint)] px-3 py-1 rounded-full">Pro tip: Save time with instant suggestions as you type!</div>
+      <p class="text-slate-700 text-left mb-3 leading-relaxed">
+        Pinpoint your perfect cruise with advanced filters. Choose by destination, dates, length, ports, cruise lines, and amenities—all tailored to your dream trip.
+      </p>
+      <div class="text-xs font-semibold text-[var(--brand)] bg-[var(--brand)]/10 px-3 py-1 rounded-md mt-1">
+        Pro tip: Get instant suggestions as you type!
+      </div>
     </div>
     <!-- Step 2 -->
-    <div class="relative p-8 rounded-3xl border border-slate-200 shadow-sm bg-white flex flex-col items-center hover:shadow-lg transition-shadow">
-      <div class="bg-[var(--brand-faint)] rounded-full p-4 mb-5 shadow-sm flex items-center justify-center">
-        <!-- Scale icon (balance) -->
-        <svg class="w-10 h-10 text-[var(--brand)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <g>
-            <line x1="12" y1="3" x2="12" y2="19" />
-            <line x1="5" y1="7" x2="19" y2="7" />
-            <path d="M7.5 7c0 2-2 5-2 5s2 3 2 5a2.5 2.5 0 0 1-5 0c0-2 2-5 2-5s-2-3-2-5a2.5 2.5 0 0 1 5 0z" />
-            <path d="M16.5 7c0 2 2 5 2 5s-2 3-2 5a2.5 2.5 0 0 0 5 0c0-2-2-5-2-5s2-3 2-5a2.5 2.5 0 0 0-5 0z" />
-          </g>
+    <div class="relative p-8 rounded-3xl border-0 shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white flex flex-col items-start hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
+      <div class="flex items-center justify-center mb-6 w-14 h-14 rounded-xl bg-[var(--brand)]/10 shadow-inner">
+        <!-- Custom Scale/Balancer Icon -->
+        <svg class="w-9 h-9 text-[var(--brand)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 32">
+          <!-- Central base -->
+          <rect x="14" y="24" width="4" height="4" rx="2" fill="currentColor" />
+          <rect x="15" y="6" width="2" height="18" rx="1" fill="currentColor" />
+          <!-- Arms -->
+          <line x1="6" y1="12" x2="26" y2="12" stroke="currentColor" stroke-width="2"/>
+          <!-- Left pan -->
+          <ellipse cx="8" cy="21" rx="4" ry="2" stroke="currentColor" fill="white" />
+          <line x1="8" y1="12" x2="8" y2="19" stroke="currentColor" stroke-width="1.5"/>
+          <!-- Right pan -->
+          <ellipse cx="24" cy="21" rx="4" ry="2" stroke="currentColor" fill="white" />
+          <line x1="24" y1="12" x2="24" y2="19" stroke="currentColor" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="font-bold text-xl mb-2" style="color:var(--brand)">2 · Effortless Comparison</div>
-      <p class="text-slate-700 text-center mb-3">See real per-person, per-night pricing and key ship features, all side by side. No more guessing—just clear, honest info.</p>
-      <div class="text-xs font-semibold text-[var(--brand)] bg-[var(--brand-faint)] px-3 py-1 rounded-full">Why it matters: Find the best value at a glance!</div>
+      <p class="text-slate-700 text-left mb-3 leading-relaxed">
+        Instantly compare real per-person, per-night pricing and ship features, side by side. Enjoy honest, transparent information—no guesswork required.
+      </p>
+      <div class="text-xs font-semibold text-[var(--brand)] bg-[var(--brand)]/10 px-3 py-1 rounded-md mt-1">
+        Why it matters: Find the best value at a glance.
+      </div>
     </div>
     <!-- Step 3 -->
-    <div class="relative p-8 rounded-3xl border border-slate-200 shadow-sm bg-white flex flex-col items-center hover:shadow-lg transition-shadow">
-      <div class="bg-[var(--brand-faint)] rounded-full p-4 mb-5 shadow-sm flex items-center justify-center">
-        <!-- Bell/Track icon -->
-        <svg class="w-10 h-10 text-[var(--brand)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1h6z"/>
+    <div class="relative p-8 rounded-3xl border-0 shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white flex flex-col items-start hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
+      <div class="flex items-center justify-center mb-6 w-14 h-14 rounded-xl bg-[var(--brand)]/10 shadow-inner">
+        <!-- Custom Bell/Notification Icon -->
+        <svg class="w-9 h-9 text-[var(--brand)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 32">
+          <path d="M16 6c-5 0-8 3.5-8 9v3.5c0 1-.5 2-1.5 3l-1.5 1.5h22l-1.5-1.5c-1-1-1.5-2-1.5-3V15c0-5.5-3-9-8-9z" stroke="currentColor" fill="white"/>
+          <path d="M12 27a4 4 0 0 0 8 0" stroke="currentColor"/>
         </svg>
       </div>
       <div class="font-bold text-xl mb-2" style="color:var(--brand)">3 · Track & Book</div>
-      <p class="text-slate-700 text-center mb-3">Set up price-drop alerts, stay ahead with real-time notifications, and book through trusted partners—stress free.</p>
-      <div class="text-xs font-semibold text-[var(--brand)] bg-[var(--brand-faint)] px-3 py-1 rounded-full">Pro tip: Never miss a deal again!</div>
+      <p class="text-slate-700 text-left mb-3 leading-relaxed">
+        Set up personalized price alerts, get notified instantly about deals, and book securely through trusted partners. Enjoy a worry-free booking experience.
+      </p>
+      <div class="text-xs font-semibold text-[var(--brand)] bg-[var(--brand)]/10 px-3 py-1 rounded-md mt-1">
+        Pro tip: Never miss a deal again!
+      </div>
     </div>
-  </div>
-  <!-- Optional: Add decorative connectors/arrows for desktop screens -->
-  <div class="hidden lg:block absolute left-0 right-0 top-1/2 z-0">
-    <svg class="w-full h-16" fill="none" stroke="var(--brand-faint)" stroke-width="2">
-      <line x1="17%" y1="50%" x2="50%" y2="50%" />
-      <line x1="50%" y1="50%" x2="83%" y2="50%" />
-    </svg>
   </div>
 </section>
 
