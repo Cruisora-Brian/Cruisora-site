@@ -26,31 +26,33 @@
   <link href="https://cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
 
   <style>
-    :root {
-      --brand:#0a2540;   /* deep navy */
-      --accent:#00b3ff;  /* punchy cyan */
-      --ink:#0b1220;     /* near-black text */
-      --brand-faint: rgba(10,37,64,.06);
+    :root{
+      --brand:#0a2540; --accent:#00b3ff; --ink:#0b1220; --brand-faint:rgba(10,37,64,.06)
     }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans"; color: var(--ink); }
-    .shadow-xl-soft { box-shadow: 0 15px 40px rgba(0,0,0,.25); }
-    .btn-primary { background: var(--accent); color: #041018; }
-    .btn-primary:hover { filter: brightness(0.95); }
-    .chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
-
-    /* Mailchimp container cleanup */
-    #mc_embed_signup { background:#fff; clear:left; width:100%; max-width:600px; border-radius: 0.75rem; }
-    #mc_embed_signup .refferal_badge { display:none !important; }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans";color:var(--ink)}
+    .shadow-xl-soft{box-shadow:0 15px 40px rgba(0,0,0,.25)}
+    .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+    /* Primary button vibe */
+    .btn-primary{
+      background:linear-gradient(135deg,#00b3ff,#41d9ff);
+      color:#041018
+    }
+    .btn-primary:hover{filter:brightness(.96)}
+    .btn-primary:active{transform:translateY(1px)}
+    /* Mailchimp tidying */
+    #mc_embed_signup{background:#fff;clear:left;width:100%;max-width:600px;border-radius:.75rem}
+    #mc_embed_signup .refferal_badge{display:none!important}
+    /* Utility to keep images crisp */
+    img{image-rendering:auto}
   </style>
 </head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQCTQWRC8R"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FQCTQWRC8R');
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js',new Date()); gtag('config','G-FQCTQWRC8R');
 </script>
   
 <body class="bg-white">
@@ -84,7 +86,7 @@
         <!-- Anchor target -->
         <div id="waitlist" class="pt-2"></div>
 
-        <!-- Success banner (hidden by default) -->
+        <!-- Success banner -->
         <div id="success-banner" role="alert"
              class="hidden opacity-0 transition-opacity duration-500 mt-4 rounded-xl border border-cyan-200 bg-cyan-50/90 text-cyan-900 px-4 py-3 shadow">
           <p class="font-semibold">🎉 You’re on the list!</p>
@@ -95,21 +97,15 @@
         <div id="mc_embed_signup" class="mt-4 bg-white/95 backdrop-blur border border-white/20 p-4 sm:p-5">
           <!-- IMPORTANT: Replace COM in the domain below with your actual Mailchimp subdomain (e.g., xyz.us6) -->
           <form action="https://COM.us6.list-manage.com/subscribe/post?u=24aa21bb7924a415d000f32f8&amp;id=f0c508410d&amp;f_id=00b855e5f0"
-                method="post"
-                id="mc-embedded-subscribe-form"
-                name="mc-embedded-subscribe-form"
-                class="validate"
-                novalidate>
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                class="validate" novalidate>
             <div id="mc_embed_signup_scroll">
               <h2 class="sr-only">Join the Cruisora Beta Waitlist</h2>
 
               <div class="mc-field-group">
                 <label for="mce-EMAIL" class="sr-only">Email Address</label>
-                <input type="email"
-                       name="EMAIL"
+                <input type="email" name="EMAIL" id="mce-EMAIL" required
                        class="required email w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-cyan-300"
-                       id="mce-EMAIL"
-                       required
                        placeholder="you@email.com">
               </div>
 
@@ -125,12 +121,10 @@
 
               <div class="optionalParent">
                 <div class="clear foot mt-3">
-                  <input type="submit"
-                         name="subscribe"
-                         id="mc-embedded-subscribe"
-                         class="button rounded-xl px-6 py-3 font-semibold cursor-pointer"
-                         style="background:var(--accent); color:#041018;"
-                         value="Join waitlist">
+                  <button type="submit" name="subscribe" id="mc-embedded-subscribe"
+                          class="btn-primary rounded-xl px-6 py-3 font-semibold shadow-xl-soft hover:shadow-2xl transition focus:outline-none focus:ring-4 focus:ring-cyan-300">
+                    Join waitlist
+                  </button>
                 </div>
               </div>
             </div>
@@ -147,8 +141,8 @@
 
       <div class="relative">
         <div class="rounded-2xl overflow-hidden shadow-xl-soft ring-1 ring-white/10">
-          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop"
-               alt="Cruise ship in turquoise Caribbean water" class="w-full h-96 object-cover">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80"
+               alt="Cruise ship in turquoise Caribbean water" class="w-full h-96 object-cover" referrerpolicy="no-referrer">
         </div>
         <div class="absolute -bottom-6 left-6 bg-white/90 backdrop-blur rounded-xl border border-slate-200 shadow px-4 py-3">
           <p class="text-sm text-slate-800"><span class="font-semibold">🔔 Sample alert:</span> “7-night Europe sailing dropped to $279*/pp”</p>
@@ -163,24 +157,22 @@
     <div class="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       <div class="absolute -z-10 left-1/2 top-0 w-[90%] h-full bg-gradient-to-tr from-[var(--brand-faint)] to-transparent rounded-3xl blur-2xl opacity-20"></div>
       
-      <div class="relative p-8 rounded-3xl border-0 shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white flex flex-col items-start hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
+      <div class="relative p-8 rounded-3xl shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
         <div class="font-bold text-xl mb-2" style="color:var(--brand)">1 · Download the App</div>
-        <p class="text-slate-700 text-left mb-3 leading-relaxed">
-          Get Cruisora on iOS or Android and sign in to start exploring cruises instantly. Your next vacation is only a tap away.
+        <p class="text-slate-700 leading-relaxed">
+          Get Cruisora on iOS or Android and sign in to start exploring cruises instantly.
         </p>
       </div>
-      
-      <div class="relative p-8 rounded-3xl border-0 shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white flex flex-col items-start hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
+      <div class="relative p-8 rounded-3xl shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
         <div class="font-bold text-xl mb-2" style="color:var(--brand)">2 · Compare Sailings</div>
-        <p class="text-slate-700 text-left mb-3 leading-relaxed">
-          Use advanced filters by destination, dates, length, cruise line, ship features, and price per night/person to find the perfect sailing.
+        <p class="text-slate-700 leading-relaxed">
+          Filter by destination, dates, length, cruise line, ship features, and price per night/person.
         </p>
       </div>
-      
-      <div class="relative p-8 rounded-3xl border-0 shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white flex flex-col items-start hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
+      <div class="relative p-8 rounded-3xl shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
         <div class="font-bold text-xl mb-2" style="color:var(--brand)">3 · Get Notified</div>
-        <p class="text-slate-700 text-left mb-3 leading-relaxed">
-          Track the sailings you love and receive instant alerts 🔔 when fares drop or availability changes, so you can book at the right time.
+        <p class="text-slate-700 leading-relaxed">
+          Track favorites and receive instant alerts 🔔 when fares drop or availability changes.
         </p>
       </div>
     </div>
@@ -199,10 +191,9 @@
         <div class="aspect-[4/3] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80"
-            alt="Cruise ship in vivid blue water"
+            alt="Large cruise ship sailing in bright Caribbean waters"
             class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544551763-7ef4200c88b2?auto=format&fit=crop&w=1200&q=80';">
+            loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -215,9 +206,7 @@
           </div>
           <div>
             <p class="mt-3 text-xs text-slate-500">📅 June 12 – June 19, 2025</p>
-            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500">
-              <span>👀 1,245 watching</span><span>👍👍👍</span>
-            </div>
+            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500"><span>👀 1,245 watching</span><span>👍👍👍</span></div>
           </div>
         </div>
       </article>
@@ -229,8 +218,7 @@
             src="https://images.unsplash.com/photo-1544551763-7ef4200c88b2?auto=format&fit=crop&w=1200&q=80"
             alt="Cruise ship docked in turquoise water"
             class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80';">
+            loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -243,9 +231,7 @@
           </div>
           <div>
             <p class="mt-3 text-xs text-slate-500">📅 July 8 – July 13, 2025</p>
-            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500">
-              <span>👀 986 watching</span><span>👍👍</span>
-            </div>
+            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500"><span>👀 986 watching</span><span>👍👍</span></div>
           </div>
         </div>
       </article>
@@ -255,10 +241,9 @@
         <div class="aspect-[4/3] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1524777316830-54d4f4bda7d3?auto=format&fit=crop&w=1200&q=80"
-            alt="Cruise ship passing a tropical island"
+            alt="Cruise liner passing a tropical island"
             class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544551763-7ef4200c88b2?auto=format&fit=crop&w=1200&q=80';">
+            loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -271,9 +256,7 @@
           </div>
           <div>
             <p class="mt-3 text-xs text-slate-500">📅 August 15 – August 25, 2025</p>
-            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500">
-              <span>👀 1,563 watching</span><span>👍👍👍👍</span>
-            </div>
+            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500"><span>👀 1,563 watching</span><span>👍👍👍👍</span></div>
           </div>
         </div>
       </article>
@@ -285,8 +268,7 @@
             src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?auto=format&fit=crop&w=1200&q=80"
             alt="Caribbean cruise ship at sunset"
             class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80';">
+            loading="lazy" referrerpolicy="no-referrer">
         </div>
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -299,9 +281,7 @@
           </div>
           <div>
             <p class="mt-3 text-xs text-slate-500">📅 September 2 – September 6, 2025</p>
-            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500">
-              <span>👀 734 watching</span><span>👍👍</span>
-            </div>
+            <div class="mt-2 flex items-center gap-2 text-xs text-slate-500"><span>👀 734 watching</span><span>👍👍</span></div>
           </div>
         </div>
       </article>
@@ -321,43 +301,26 @@
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 
   <!-- Mailchimp validation JS -->
   <script src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js" type="text/javascript"></script>
   <script type="text/javascript">
-    (function($) {
-      window.fnames = new Array(); window.ftypes = new Array();
-      fnames[0]='EMAIL'; ftypes[0]='email';
-    }(jQuery));
-    var $mcj = jQuery.noConflict(true);
-
-    // Success banner logic: show when Mailchimp writes a success message
-    (function() {
-      const successEl = document.getElementById('mce-success-response');
-      const banner = document.getElementById('success-banner');
-      const msgEl = banner ? banner.querySelector('.msg') : null;
-
-      if (!successEl || !banner) return;
-
-      const showBanner = (msg) => {
-        if (msgEl && msg) msgEl.textContent = msg;
-        banner.classList.remove('hidden');
-        requestAnimationFrame(() => banner.classList.remove('opacity-0'));
-        // auto-hide after 5s
-        setTimeout(() => {
-          banner.classList.add('opacity-0');
-          setTimeout(() => banner.classList.add('hidden'), 400);
-        }, 5000);
+    (function($){window.fnames=[];window.ftypes=[];fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));
+    var $mcj=jQuery.noConflict(true);
+    // Success banner logic
+    (function(){
+      const successEl=document.getElementById('mce-success-response');
+      const banner=document.getElementById('success-banner');
+      const msgEl=banner?banner.querySelector('.msg'):null;
+      if(!successEl||!banner) return;
+      const show=(msg)=>{
+        if(msgEl&&msg) msgEl.textContent=msg;
+        banner.classList.remove('hidden'); requestAnimationFrame(()=>banner.classList.remove('opacity-0'));
+        setTimeout(()=>{banner.classList.add('opacity-0'); setTimeout(()=>banner.classList.add('hidden'),400)},5000);
       };
-
-      // Observe changes Mailchimp makes to the success node
-      const obs = new MutationObserver(() => {
-        const visible = successEl.style.display !== 'none';
-        const text = successEl.textContent.trim();
-        if (visible && text.length) showBanner(text);
-      });
-      obs.observe(successEl, { childList: true, subtree: true, attributes: true, characterData: true });
+      new MutationObserver(()=>{const vis=successEl.style.display!=='none'; const text=successEl.textContent.trim(); if(vis&&text) show(text);})
+        .observe(successEl,{childList:true,subtree:true,attributes:true,characterData:true});
     })();
   </script>
 </body>
