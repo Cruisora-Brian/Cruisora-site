@@ -245,6 +245,19 @@
       transform-origin: center bottom;
       transition: transform .6s ease;
     }
+    .newsletter-inbox::after{
+      content: "";
+      position: absolute;
+      bottom: -1.3rem;
+      left: -20%;
+      width: 140%;
+      height: 3px;
+      background: linear-gradient(95deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.65) 45%, rgba(8,21,46,.7) 100%);
+      transform: rotate(-4deg);
+      opacity: .65;
+      pointer-events: none;
+      filter: blur(.3px);
+    }
     @media (min-width: 768px){
       .hero-media .newsletter-inbox{
         transform: rotateX(8deg) rotateY(12deg);
@@ -284,12 +297,20 @@
       border: 1px solid rgba(11,31,68,.15);
       box-shadow: 0 25px 55px rgba(5,16,32,.28);
       padding: .85rem 1.25rem;
-      max-width: calc(100% - 3rem);
+      width: calc(100% - 2rem);
+      max-width: 420px;
       font-size: .95rem;
       line-height: 1.4;
       display: flex;
       align-items: center;
       gap: .5rem;
+    }
+    @media (min-width: 1024px){
+      .hero-photo-alert{
+        font-size: 1rem;
+        padding: 1rem 1.75rem;
+        max-width: 480px;
+      }
     }
     .hero-photo-alert-label{
       font-weight: 600;
@@ -802,7 +823,7 @@
           slide.dataset.state=offset===0?'active':'inactive';
           slide.style.opacity=offset===0?'1':'0';
           slide.style.pointerEvents=offset===0?'auto':'none';
-          slide.style.transform=`translateY(${offset*110}%)`;
+          slide.style.transform=`translateX(${offset*110}%)`;
           slide.style.zIndex=String(slides.length-Math.abs(offset));
         });
         updateHeight();
@@ -830,21 +851,21 @@
       next?.addEventListener('click',()=>{goNext(); restartAutoplay();});
       dots.forEach((dot,i)=>dot.addEventListener('click',()=>{setSlide(i); restartAutoplay();}));
 
-      // Swipe gestures (vertical)
+      // Swipe gestures (horizontal)
       let pointerActive=false;
-      let startY=0;
-      let deltaY=0;
+      let startX=0;
+      let deltaX=0;
       track.addEventListener('pointerdown',(event)=>{
         pointerActive=true;
-        startY=event.clientY;
-        deltaY=0;
+        startX=event.clientX;
+        deltaX=0;
         if(track.setPointerCapture){
           track.setPointerCapture(event.pointerId);
         }
       });
       track.addEventListener('pointermove',(event)=>{
         if(!pointerActive) return;
-        deltaY=event.clientY-startY;
+        deltaX=event.clientX-startX;
       });
       const endPointer=(event)=>{
         if(!pointerActive) return;
@@ -852,11 +873,11 @@
         if(track.hasPointerCapture&&track.hasPointerCapture(event.pointerId)){
           track.releasePointerCapture(event.pointerId);
         }
-        if(Math.abs(deltaY)>40){
-          deltaY>0?goPrev():goNext();
+        if(Math.abs(deltaX)>40){
+          deltaX>0?goPrev():goNext();
           restartAutoplay();
         }
-        deltaY=0;
+        deltaX=0;
       };
       track.addEventListener('pointerup',endPointer);
       track.addEventListener('pointercancel',endPointer);
