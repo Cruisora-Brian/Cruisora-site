@@ -120,8 +120,165 @@
       color: #f4fbff;
     }
 
-    /* Badges and subtle accents */
-    .price-chip{ background: #e6fbff; color:#067e94; }
+    /* Hero media + newsletter overlay */
+    .hero-media{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0 6rem;
+    }
+    .newsletter-inbox{
+      width: min(100%, 520px);
+      border-radius: 1.75rem;
+      border: 1px solid rgba(255,255,255,.25);
+      background: linear-gradient(155deg, rgba(248,252,255,.95), rgba(236,246,252,.92));
+      box-shadow: 0 40px 90px rgba(4,14,30,.35);
+      padding: 2.25rem 2.5rem;
+      color: #0b1f44;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .inbox-status{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: rgba(11,31,68,.55);
+    }
+    .inbox-status span:last-child{
+      font-weight: 600;
+      color: rgba(11,31,68,.75);
+    }
+    .newsletter-email{
+      background: #fff;
+      border-radius: 1.35rem;
+      border: 1px solid rgba(11,31,68,.1);
+      padding: 1.75rem;
+      box-shadow: 0 20px 40px rgba(11,31,68,.12);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .email-meta{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .email-avatar{
+      height: 46px;
+      width: 46px;
+      border-radius: 9999px;
+      background: linear-gradient(140deg, rgba(20,199,232,.8), rgba(11,31,68,.9));
+      display: grid;
+      place-items: center;
+      color: #f6fbff;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .email-from{
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--brand);
+    }
+    .email-to{
+      font-size: .85rem;
+      color: rgba(11,31,68,.55);
+    }
+    .email-time{
+      margin-left: auto;
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: rgba(11,31,68,.35);
+    }
+    .email-subject{
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    .email-intro{
+      font-size: .95rem;
+      line-height: 1.6;
+      color: rgba(11,31,68,.75);
+    }
+    .newsletter-deal-list{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .newsletter-deal{
+      border-radius: 1rem;
+      border: 1px solid rgba(20,199,232,.2);
+      background: rgba(20,199,232,.08);
+      padding: .85rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .deal-route{
+      font-weight: 600;
+      color: var(--brand);
+    }
+    .deal-details{
+      font-size: .85rem;
+      color: rgba(11,31,68,.65);
+    }
+    .deal-tag{
+      margin-left: auto;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+      background: rgba(20,199,232,.12);
+      border-radius: 9999px;
+      padding: .35rem .75rem;
+    }
+    .email-cta{
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      align-self: flex-start;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #041018;
+      font-weight: 700;
+      padding: .65rem 1.1rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      box-shadow: 0 12px 25px rgba(20,199,232,.35);
+    }
+    .email-footer-note{
+      font-size: .75rem;
+      color: rgba(11,31,68,.5);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+    }
+    @media (max-width: 1023px){
+      .hero-media{
+        padding: 2.5rem 0 3rem;
+      }
+    }
+    @media (max-width: 639px){
+      .newsletter-inbox{
+        padding: 1.75rem 1.5rem;
+        gap: 1.25rem;
+      }
+      .newsletter-email{
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+      .email-meta{
+        flex-wrap: wrap;
+      }
+      .email-time{
+        margin-left: 0;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -203,13 +360,51 @@
 
       </div>
 
-      <div class="relative">
-        <div class="rounded-2xl overflow-hidden shadow-xl-soft ring-1 ring-white/10">
-          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80"
-               alt="Cruise ship in turquoise Caribbean water" class="w-full h-96 object-cover" referrerpolicy="no-referrer">
-        </div>
-        <div class="absolute -bottom-6 left-6 bg-white/90 backdrop-blur rounded-xl border border-slate-200 shadow px-4 py-3">
-          <p class="text-sm text-slate-800"><span class="font-semibold">🔔 Smart alert:</span> “Price dropped 18% on your saved Europe sailing.”</p>
+      <div class="hero-media">
+        <div class="newsletter-inbox">
+          <div class="inbox-status">
+            <span>Inbox · Today</span>
+            <span>3 new</span>
+          </div>
+          <div class="newsletter-email">
+            <div class="email-meta">
+              <div class="email-avatar">C</div>
+              <div>
+                <p class="email-from">Cruisora</p>
+                <p class="email-to">to alicia@email.com</p>
+              </div>
+              <span class="email-time">9:12 AM</span>
+            </div>
+            <div>
+              <div class="email-subject">Your weekly cruise picks just docked 🚢</div>
+              <p class="email-intro">Hi Alicia, we scanned hundreds of sailings and pulled the matches that fit your saved ships and budget.</p>
+            </div>
+            <ul class="newsletter-deal-list">
+              <li class="newsletter-deal">
+                <div>
+                  <div class="deal-route">Barcelona ➜ Greek Isles</div>
+                  <div class="deal-details">7 nights · Celebrity Ascent · July 2025</div>
+                </div>
+                <span class="deal-tag">Save 22%</span>
+              </li>
+              <li class="newsletter-deal">
+                <div>
+                  <div class="deal-route">Miami Escape &amp; CocoCay</div>
+                  <div class="deal-details">4 nights · Icon of the Seas · Spring 2025</div>
+                </div>
+                <span class="deal-tag">From $389</span>
+              </li>
+              <li class="newsletter-deal">
+                <div>
+                  <div class="deal-route">Alaska Glacier Vista</div>
+                  <div class="deal-details">10 nights · Princess Discovery · August 2025</div>
+                </div>
+                <span class="deal-tag">New cabins</span>
+              </li>
+            </ul>
+            <button type="button" class="email-cta">View all deals</button>
+          </div>
+          <p class="email-footer-note">Sent from your Cruisora watchlist alerts</p>
         </div>
       </div>
     </div>
