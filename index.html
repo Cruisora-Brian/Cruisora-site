@@ -147,87 +147,101 @@
     .hero-media{
       position: relative;
       display: flex;
+      align-items: center;
       justify-content: center;
       padding: 2rem 0 6rem;
       perspective: 1400px;
     }
-    .hero-carousel{
-      width: min(100%, 540px);
+    .hero-collage{
       position: relative;
-      overflow: hidden;
-      min-height: 420px;
+      width: min(100%, 560px);
+      padding-top: 1.5rem;
+      padding-bottom: 4.5rem;
+      margin: 0 auto;
+    }
+    .hero-collage::before{
+      content: "";
+      position: absolute;
+      inset: 12% 8% 0 18%;
+      background: radial-gradient(circle at 50% 20%, rgba(20,199,232,.16), transparent 65%);
+      filter: blur(18px);
+      opacity: .9;
+      z-index: 0;
+      transform: rotate(4deg);
+    }
+    .hero-collage-photo{
+      position: absolute;
+      top: -12%;
+      right: -14%;
+      width: 68%;
+      transform: rotate(7deg);
+      z-index: 1;
+    }
+    @media (max-width: 640px){
+      .hero-collage-photo{
+        top: -6%;
+        right: -4%;
+        width: 74%;
+      }
+    }
+    .hero-collage-alert{
+      position: absolute;
+      left: 12%;
+      bottom: -4.5rem;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      padding: 1.2rem 1.65rem;
+      border-radius: 1.5rem;
+      background: rgba(255,255,255,.96);
+      color: var(--brand-ink);
+      border: 1px solid rgba(11,31,68,.12);
+      box-shadow: 0 30px 65px rgba(5,16,32,.3);
+      width: clamp(240px, 70%, 360px);
+    }
+    .hero-collage-alert-label{
+      text-transform: uppercase;
+      letter-spacing: .32em;
+      font-size: .72rem;
+      font-weight: 700;
+      color: #b00020;
+    }
+    .hero-collage-alert-body{
+      font-size: .95rem;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 500;
+    }
+    .hero-collage-alert-body span:first-child{
+      font-size: 1.1rem;
     }
     @media (min-width: 768px){
-      .hero-carousel{ min-height: 520px; }
+      .hero-collage-alert{
+        bottom: -5.25rem;
+        padding: 1.35rem 2rem;
+      }
+      .hero-collage-alert-body{
+        font-size: 1rem;
+      }
     }
-    .hero-carousel-track{
-      position: relative;
-      height: 100%;
-      touch-action: pan-y;
+    @media (min-width: 1024px){
+      .hero-collage-alert{
+        left: 18%;
+      }
     }
-    .hero-slide{
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 3rem;
-      transition: transform .6s ease, opacity .6s ease;
-      will-change: transform, opacity;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .hero-slide:first-child{
-      position: relative;
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .hero-carousel-nav{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.25rem;
-    }
-    .hero-carousel-button{
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255,255,255,.28);
-      background: rgba(255,255,255,.14);
-      color: #f6fbff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-size: 1.15rem;
-      transition: background .3s ease, border-color .3s ease;
-    }
-    .hero-carousel-button:hover{
-      background: rgba(255,255,255,.24);
-      border-color: rgba(255,255,255,.45);
-    }
-    .hero-carousel-button:focus{
-      outline: 2px solid var(--accent-soft);
-      outline-offset: 2px;
-    }
-    .hero-carousel-dots{
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-    }
-    .hero-carousel-dot{
-      width: .75rem;
-      height: .75rem;
-      border-radius: 9999px;
-      border: 0;
-      background: rgba(255,255,255,.28);
-      cursor: pointer;
-      transition: background .3s ease, width .3s ease;
-    }
-    .hero-carousel-dot[aria-current="true"]{
-      background: var(--accent);
-      width: 1.45rem;
+    @media (max-width: 480px){
+      .hero-collage-alert{
+        left: 6%;
+        bottom: -3.25rem;
+        width: min(88%, 320px);
+        padding: .95rem 1.4rem;
+      }
+      .hero-collage-alert-body{
+        font-size: .88rem;
+      }
     }
     .newsletter-inbox{
       width: min(100%, 520px);
@@ -241,6 +255,7 @@
       flex-direction: column;
       gap: 1.5rem;
       position: relative;
+      z-index: 2;
       -webkit-box-reflect: below 1.5rem linear-gradient(transparent 45%, rgba(5,16,32,.35));
       transform-origin: center bottom;
       transition: transform .6s ease;
@@ -260,7 +275,7 @@
     }
     @media (min-width: 768px){
       .hero-media .newsletter-inbox{
-        transform: rotateX(8deg) rotateY(12deg);
+        transform: rotateX(8deg) rotateY(-12deg);
       }
     }
     @media (min-width: 1024px){
@@ -268,7 +283,7 @@
         perspective: 2000px;
       }
       .hero-media .newsletter-inbox{
-        transform: rotateX(10deg) rotateY(16deg);
+        transform: rotateX(10deg) rotateY(-18deg);
       }
     }
     .hero-photo-card{
@@ -279,41 +294,17 @@
       box-shadow: 0 40px 90px rgba(4,14,30,.35);
       border: 1px solid rgba(255,255,255,.25);
     }
+    .hero-collage-photo .hero-photo-card{
+      box-shadow: 0 35px 90px rgba(4,14,30,.32);
+      border: 1px solid rgba(255,255,255,.35);
+    }
     .hero-photo-card img{
       width: 100%;
       height: 100%;
       max-height: 520px;
       object-fit: cover;
       display: block;
-    }
-    .hero-photo-alert{
-      position: absolute;
-      left: 50%;
-      bottom: 1.75rem;
-      transform: translateX(-50%);
-      background: rgba(255,255,255,.92);
-      color: #0b1f44;
-      border-radius: 1rem;
-      border: 1px solid rgba(11,31,68,.15);
-      box-shadow: 0 25px 55px rgba(5,16,32,.28);
-      padding: .85rem 1.25rem;
-      width: calc(100% - 2rem);
-      max-width: 420px;
-      font-size: .95rem;
-      line-height: 1.4;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-    @media (min-width: 1024px){
-      .hero-photo-alert{
-        font-size: 1rem;
-        padding: 1rem 1.75rem;
-        max-width: 480px;
-      }
-    }
-    .hero-photo-alert-label{
-      font-weight: 600;
+      filter: saturate(1.05);
     }
     .inbox-status{
       display: flex;
@@ -538,77 +529,64 @@
       </div>
 
       <div class="hero-media">
-        <div class="hero-carousel" data-hero-carousel data-autoplay="true">
-          <div class="hero-carousel-track" data-hero-track>
-            <div class="hero-slide" data-hero-slide>
-              <div class="newsletter-inbox">
-                <div class="inbox-status">
-                  <span>Inbox · Today</span>
-                  <span>3 new</span>
-                </div>
-                <div class="newsletter-email">
-                  <div class="email-meta">
-                    <div class="email-avatar">C</div>
-                    <div>
-                      <p class="email-from">Cruisora</p>
-                      <p class="email-to">to alicia@email.com</p>
-                    </div>
-                    <span class="email-time">9:12 AM</span>
-                  </div>
-                  <div>
-                    <div class="email-subject">Your weekly cruise picks just docked 🚢</div>
-                    <p class="email-intro">Hi Alicia, we scanned hundreds of sailings and pulled the matches that fit your saved ships and budget.</p>
-                  </div>
-                  <ul class="newsletter-deal-list">
-                    <li class="newsletter-deal">
-                      <div>
-                        <div class="deal-route">Barcelona ➜ Greek Isles</div>
-                        <div class="deal-details">7 nights · Celebrity Ascent · July 2025</div>
-                      </div>
-                      <span class="deal-tag">Save 22%</span>
-                    </li>
-                    <li class="newsletter-deal">
-                      <div>
-                        <div class="deal-route">Miami Escape &amp; CocoCay</div>
-                        <div class="deal-details">4 nights · Icon of the Seas · Spring 2025</div>
-                      </div>
-                      <span class="deal-tag">From $389</span>
-                    </li>
-                    <li class="newsletter-deal">
-                      <div>
-                        <div class="deal-route">Alaska Glacier Vista</div>
-                        <div class="deal-details">10 nights · Princess Discovery · August 2025</div>
-                      </div>
-                      <span class="deal-tag">New cabins</span>
-                    </li>
-                  </ul>
-                  <button type="button" class="email-cta">View all deals</button>
-                </div>
-                <p class="email-footer-note">Sent from your Cruisora watchlist alerts</p>
-              </div>
-            </div>
-            <div class="hero-slide" data-hero-slide>
-              <div class="hero-photo-card">
-                <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80"
-                     alt="Cruise ship gliding through the Greek Isles" referrerpolicy="no-referrer">
-                <div class="hero-photo-alert">
-                  <span class="hero-photo-alert-label">🔔 Smart alert:</span>
-                  <span>Price dropped 18% on your saved Europe sailing.</span>
-                </div>
-              </div>
+        <div class="hero-collage">
+          <div class="hero-collage-photo">
+            <div class="hero-photo-card">
+              <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80"
+                   alt="Cruise ship gliding through the Greek Isles" referrerpolicy="no-referrer">
             </div>
           </div>
-          <div class="hero-carousel-nav">
-            <button type="button" class="hero-carousel-button" data-hero-prev aria-label="Previous hero slide">
-              <span aria-hidden="true">‹</span>
-            </button>
-            <div class="hero-carousel-dots" role="tablist" aria-label="Hero slides">
-              <button type="button" class="hero-carousel-dot" aria-label="Show hero slide 1" aria-current="true" data-hero-dot="0"></button>
-              <button type="button" class="hero-carousel-dot" aria-label="Show hero slide 2" data-hero-dot="1"></button>
+          <div class="newsletter-inbox">
+            <div class="inbox-status">
+              <span>Inbox · Today</span>
+              <span>3 new</span>
             </div>
-            <button type="button" class="hero-carousel-button" data-hero-next aria-label="Next hero slide">
-              <span aria-hidden="true">›</span>
-            </button>
+            <div class="newsletter-email">
+              <div class="email-meta">
+                <div class="email-avatar">C</div>
+                <div>
+                  <p class="email-from">Cruisora</p>
+                  <p class="email-to">to alicia@email.com</p>
+                </div>
+                <span class="email-time">9:12 AM</span>
+              </div>
+              <div>
+                <div class="email-subject">Your weekly cruise picks just docked 🚢</div>
+                <p class="email-intro">Hi Alicia, we scanned hundreds of sailings and pulled the matches that fit your saved ships and budget.</p>
+              </div>
+              <ul class="newsletter-deal-list">
+                <li class="newsletter-deal">
+                  <div>
+                    <div class="deal-route">Barcelona ➜ Greek Isles</div>
+                    <div class="deal-details">7 nights · Celebrity Ascent · July 2025</div>
+                  </div>
+                  <span class="deal-tag">Save 22%</span>
+                </li>
+                <li class="newsletter-deal">
+                  <div>
+                    <div class="deal-route">Miami Escape &amp; CocoCay</div>
+                    <div class="deal-details">4 nights · Icon of the Seas · Spring 2025</div>
+                  </div>
+                  <span class="deal-tag">From $389</span>
+                </li>
+                <li class="newsletter-deal">
+                  <div>
+                    <div class="deal-route">Alaska Glacier Vista</div>
+                    <div class="deal-details">10 nights · Princess Discovery · August 2025</div>
+                  </div>
+                  <span class="deal-tag">New cabins</span>
+                </li>
+              </ul>
+              <button type="button" class="email-cta">View all deals</button>
+            </div>
+            <p class="email-footer-note">Sent from your Cruisora watchlist alerts</p>
+          </div>
+          <div class="hero-collage-alert">
+            <span class="hero-collage-alert-label">Sample alert</span>
+            <div class="hero-collage-alert-body">
+              <span>🔔</span>
+              <span>Price dropped 18% on your saved Europe sailing.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -795,110 +773,6 @@
         .observe(successEl,{childList:true,subtree:true,attributes:true,characterData:true});
     })();
 
-    // Hero carousel logic
-    (function(){
-      const carousel=document.querySelector('[data-hero-carousel]');
-      if(!carousel) return;
-      const track=carousel.querySelector('[data-hero-track]');
-      const slides=[...carousel.querySelectorAll('[data-hero-slide]')];
-      const dots=[...carousel.querySelectorAll('[data-hero-dot]')];
-      const prev=carousel.querySelector('[data-hero-prev]');
-      const next=carousel.querySelector('[data-hero-next]');
-      if(!track||slides.length<=1) return;
-      let index=0;
-      let autoplayTimer;
-      const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const autoplayEnabled=carousel.hasAttribute('data-autoplay')&&!prefersReduced;
-
-      const updateHeight=()=>{
-        const active=slides[index];
-        if(!active) return;
-        carousel.style.height=`${active.offsetHeight}px`;
-      };
-
-      const setPositions=()=>{
-        slides.forEach((slide,i)=>{
-          const offset=i-index;
-          slide.style.position='absolute';
-          slide.dataset.state=offset===0?'active':'inactive';
-          slide.style.opacity=offset===0?'1':'0';
-          slide.style.pointerEvents=offset===0?'auto':'none';
-          slide.style.transform=`translateX(${offset*110}%)`;
-          slide.style.zIndex=String(slides.length-Math.abs(offset));
-        });
-        updateHeight();
-        requestAnimationFrame(updateHeight);
-      };
-
-      const setSlide=(nextIndex)=>{
-        index=(nextIndex+slides.length)%slides.length;
-        setPositions();
-        dots.forEach((dot,i)=>{
-          dot.setAttribute('aria-current', i===index ? 'true' : 'false');
-        });
-      };
-
-      const goNext=()=>setSlide(index+1);
-      const goPrev=()=>setSlide(index-1);
-
-      const restartAutoplay=()=>{
-        if(!autoplayEnabled) return;
-        clearInterval(autoplayTimer);
-        autoplayTimer=setInterval(goNext,6000);
-      };
-
-      prev?.addEventListener('click',()=>{goPrev(); restartAutoplay();});
-      next?.addEventListener('click',()=>{goNext(); restartAutoplay();});
-      dots.forEach((dot,i)=>dot.addEventListener('click',()=>{setSlide(i); restartAutoplay();}));
-
-      // Swipe gestures (horizontal)
-      let pointerActive=false;
-      let startX=0;
-      let deltaX=0;
-      track.addEventListener('pointerdown',(event)=>{
-        pointerActive=true;
-        startX=event.clientX;
-        deltaX=0;
-        if(track.setPointerCapture){
-          track.setPointerCapture(event.pointerId);
-        }
-      });
-      track.addEventListener('pointermove',(event)=>{
-        if(!pointerActive) return;
-        deltaX=event.clientX-startX;
-      });
-      const endPointer=(event)=>{
-        if(!pointerActive) return;
-        pointerActive=false;
-        if(track.hasPointerCapture&&track.hasPointerCapture(event.pointerId)){
-          track.releasePointerCapture(event.pointerId);
-        }
-        if(Math.abs(deltaX)>40){
-          deltaX>0?goPrev():goNext();
-          restartAutoplay();
-        }
-        deltaX=0;
-      };
-      track.addEventListener('pointerup',endPointer);
-      track.addEventListener('pointercancel',endPointer);
-
-      window.addEventListener('resize',()=>{
-        requestAnimationFrame(updateHeight);
-      });
-
-      document.addEventListener('visibilitychange',()=>{
-        if(!autoplayEnabled) return;
-        if(document.hidden){
-          clearInterval(autoplayTimer);
-        }else{
-          restartAutoplay();
-        }
-      });
-
-      setSlide(0);
-      window.addEventListener('load',()=>requestAnimationFrame(updateHeight));
-      restartAutoplay();
-    })();
   </script>
 </body>
 </html>
