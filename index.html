@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>cruisora — the app to find the perfect cruise</title>
-  <meta name="description" content="Cruisora is the app that helps you find better cruise deals with powerful filters, price-per-night comparisons, and personalized alerts when prices change or new sailings appear." />
+  <meta name="description" content="Cruisora is the app for smarter cruise shopping—search deeper, compare price-per-night, and get personalized alerts when prices change or new sailings appear." />
   <link rel="canonical" href="https://cruisora.com/" />
 
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:title" content="cruisora — the app to find the perfect cruise" />
   <meta property="og:description" content="Search smarter, compare clearer, get notified faster. Join the beta waitlist." />
   <meta property="og:type" content="website" />
@@ -18,37 +18,75 @@
 
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Typography: DM Sans (headings). Body uses system Helvetica stack -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Mailchimp embed styles -->
   <link href="https://cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
 
   <style>
+    /* ===== Brand palette tuned to your logo ===== */
     :root{
-      --brand:#0a2540; --accent:#00b3ff; --ink:#0b1220; --brand-faint:rgba(10,37,64,.06)
+      --brand:#0b1f44;   /* deep navy (logo wordmark) */
+      --brand-ink:#0a162e; /* slightly darker for text */
+      --accent:#14c7e8; /* main aqua (logo waves) */
+      --accent-strong:#0bb0cf; /* deeper aqua */
+      --accent-soft:#8ee8f7;   /* light aqua for tints */
+      --ink:#0b1220;    /* body text */
+      --brand-faint: rgba(11,31,68,0.06);
     }
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans";color:var(--ink)}
-    .shadow-xl-soft{box-shadow:0 15px 40px rgba(0,0,0,.25)}
-    .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
-    /* Primary button (small, pill) */
+
+    /* ===== Type system ===== */
+    /* Headings lean modern/app-like with DM Sans; body aligns to Helvetica from logo */
+    h1, h2, h3, h4, .heading {
+      font-family: "DM Sans", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--brand);
+    }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, "DM Sans", system-ui, sans-serif;
+      color: var(--brand-ink);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      background-color: #ffffff;
+    }
+
+    /* Small utilities */
+    .shadow-xl-soft { box-shadow: 0 15px 40px rgba(0,0,0,.25); }
+    .chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
+
+    /* CTA button — smaller, pill, right-justified */
     .btn-primary{
-      background:linear-gradient(135deg,#00b3ff,#41d9ff);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color:#041018;
       border-radius:9999px;
-      padding:.6rem 1rem;
+      padding:.55rem 1rem;
       font-weight:700;
-      font-size:0.95rem;
+      font-size:.95rem;
     }
-    .btn-primary:hover{filter:brightness(.96)}
-    .btn-primary:active{transform:translateY(1px)}
-    /* Mailchimp tidy + tighter spacing */
-    #mc_embed_signup{background:#fff;clear:left;width:100%;max-width:520px;border-radius:.75rem}
-    #mc_embed_signup .mc-field-group{margin:0}
-    #mc_embed_signup .optionalParent{margin-top:.5rem}
-    #mc_embed_signup .refferal_badge{display:none!important}
-    img{image-rendering:auto}
+    .btn-primary:hover{ filter: brightness(.96) }
+    .btn-primary:active{ transform: translateY(1px) }
+
+    /* Mailchimp form tidy + compact spacing */
+    #mc_embed_signup{ background:#fff; clear:left; width:100%; max-width:520px; border-radius:.75rem }
+    #mc_embed_signup .mc-field-group{ margin:0 }
+    #mc_embed_signup .optionalParent{ margin-top:.5rem }
+    #mc_embed_signup .refferal_badge{ display:none!important }
+
+    /* Crisp images */
+    img { image-rendering:auto }
+
+    /* Hero background tuned to brand/accent */
+    .hero-bg{
+      background:
+        radial-gradient(800px 400px at 10% -10%, rgba(20,199,232,.25), transparent),
+        radial-gradient(900px 500px at 110% 10%, rgba(11,31,68,.60), rgba(11,31,68,.95));
+    }
+
+    /* Badges and subtle accents */
+    .price-chip{ background: #e6fbff; color:#067e94; }
   </style>
 </head>
 
@@ -60,14 +98,15 @@
   gtag('js',new Date()); gtag('config','G-FQCTQWRC8R');
 </script>
   
-<body class="bg-white">
+<body>
   <!-- Header -->
   <header class="border-b border-slate-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
     <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-3">
-  <img src="assets/cruisoralogo.png" alt="Cruisora logo" class="h-10 w-auto">
-</a>
-      <nav class="hidden sm:flex gap-6 text-sm">
+      <a href="#" class="flex items-center gap-3">
+        <!-- New logo image -->
+        <img src="/assets/cruisoralogo.png" alt="Cruisora logo" class="h-9 w-auto">
+      </a>
+      <nav class="hidden sm:flex gap-6 text-sm items-center">
         <span class="text-slate-500">The <strong>app</strong> for smarter cruise shopping</span>
         <a href="#waitlist" class="hover:underline text-slate-700 font-semibold">Join Waitlist</a>
         <a href="#how" class="hover:underline text-slate-700 font-semibold">How It Works</a>
@@ -77,12 +116,12 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden" style="background: radial-gradient(800px 400px at 10% -10%, rgba(0,179,255,.25), transparent), radial-gradient(900px 500px at 110% 10%, rgba(10,37,64,.60), rgba(10,37,64,.95));">
+  <section class="relative overflow-hidden hero-bg">
     <div class="mx-auto max-w-6xl px-4 py-12 lg:py-18 grid gap-10 lg:grid-cols-2 items-center">
       <div class="text-white">
-        <span class="chip inline-block rounded-full px-3 py-1 text-xs uppercase tracking-wider">Beta waitlist open</span>
-        <h1 class="mt-4 text-4xl/tight lg:text-6xl font-extrabold tracking-tight">Find the perfect cruise. <span style="color:var(--accent)">Easily.</span></h1>
-        <p class="mt-4 text-lg text-white/90">Cruisora is the app that lets you search smarter, compare clearer, and get notified the moment prices change or new sailings match your vibe.</p>
+        <span class="chip inline-block rounded-full px-3 py-1 text-xs uppercase tracking-wider border-white/30">Beta waitlist open</span>
+        <h1 class="mt-4 text-4xl/tight lg:text-6xl heading">Find the perfect cruise. <span style="color:var(--accent)">Easily.</span></h1>
+        <p class="mt-4 text-lg text-white/90">Cruisora is the app that lets you search deeper, compare price-per-night, and get personalized alerts when prices change or new sailings match your style.</p>
 
         <!-- Anchor target -->
         <div id="waitlist" class="pt-1"></div>
@@ -93,7 +132,7 @@
           <p class="font-semibold">🎉 You’re on the list!</p>
         </div>
 
-        <!-- Mailchimp Waitlist (tight spacing; button right-aligned, small & pill-shaped) -->
+        <!-- Mailchimp Waitlist (compact; CTA right-aligned) -->
         <div id="mc_embed_signup" class="mt-3 bg-white/95 backdrop-blur border border-white/20 p-3 sm:p-4">
           <!-- IMPORTANT: Replace COM with your Mailchimp subdomain (e.g., xyz.us6) -->
           <form action="https://COM.us6.list-manage.com/subscribe/post?u=24aa21bb7924a415d000f32f8&amp;id=f0c508410d&amp;f_id=00b855e5f0"
@@ -143,31 +182,31 @@
 
   <!-- How it works (polished marketing) -->
   <section id="how" class="mx-auto max-w-6xl px-4 py-16">
-    <h2 class="text-3xl font-extrabold tracking-tight text-center mb-12" style="color:var(--brand)">How It Works</h2>
+    <h2 class="text-3xl heading text-center mb-12">How It Works</h2>
     <div class="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       <div class="absolute -z-10 left-1/2 top-0 w-[90%] h-full bg-gradient-to-tr from-[var(--brand-faint)] to-transparent rounded-3xl blur-2xl opacity-20"></div>
       
       <!-- Step 1 -->
       <div class="relative p-8 rounded-3xl shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
-        <div class="font-bold text-xl mb-2" style="color:var(--brand)">1 · Search Smarter</div>
+        <div class="text-lg font-bold mb-2" style="color:var(--brand)">1 · Search smarter</div>
         <p class="text-slate-700 leading-relaxed">
-          Start with the big picture and zero in fast. Filter by <strong>destination, dates, length, lines, ships</strong> and amenities—then sort by <strong>price-per-night/person</strong> for true value.
+          Explore every line, ship and itinerary in one place. Narrow it down with powerful filters—<strong>destination, dates, length, ship features, cabin type</strong>—and surface real value with <strong>price-per-night/person</strong>.
         </p>
       </div>
       
       <!-- Step 2 -->
       <div class="relative p-8 rounded-3xl shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
-        <div class="font-bold text-xl mb-2" style="color:var(--brand)">2 · Find Your Perfect Sailing</div>
+        <div class="text-lg font-bold mb-2" style="color:var(--brand)">2 · Compare clearly</div>
         <p class="text-slate-700 leading-relaxed">
-          Compare across cruise lines in one place, save favorites to <strong>Watchlists</strong>, and explore more options than you’ll find anywhere else—so the right cruise finds you.
+          See apples-to-apples pricing and ship details across brands. Save favorites to <strong>Watchlists</strong> and keep more options on the table—so the right cruise finds you.
         </p>
       </div>
       
       <!-- Step 3 -->
       <div class="relative p-8 rounded-3xl shadow-lg bg-gradient-to-br from-white via-[var(--brand-faint)] to-white hover:shadow-2xl transition-shadow ring-1 ring-[var(--brand-faint)]">
-        <div class="font-bold text-xl mb-2" style="color:var(--brand)">3 · Get Personalized Alerts</div>
+        <div class="text-lg font-bold mb-2" style="color:var(--brand)">3 · Get personalized alerts</div>
         <p class="text-slate-700 leading-relaxed">
-          Turn on alerts for instant updates when <strong>prices change</strong>, <strong>cabins open</strong>, or <strong>new matching sailings</strong> are added. Book with confidence at the right time.
+          Turn on notifications for instant updates when <strong>prices change</strong>, <strong>cabins open</strong>, or <strong>new matching sailings</strong> appear. Book with confidence at the right time.
         </p>
       </div>
     </div>
@@ -176,7 +215,7 @@
   <!-- Most Watched -->
   <section id="most-watched" class="mx-auto max-w-6xl px-4 py-16">
     <div class="flex items-end justify-between gap-4">
-      <h2 class="text-3xl font-extrabold tracking-tight" style="color:var(--brand)">Most Watched</h2>
+      <h2 class="text-3xl heading">Most Watched</h2>
       <a href="#all-cruises" class="text-sm font-semibold hover:underline" style="color:var(--accent)">See all</a>
     </div>
 
@@ -194,7 +233,7 @@
           <div>
             <div class="flex items-center justify-between">
               <h3 class="font-semibold text-slate-900">7-Night Eastern Caribbean</h3>
-              <span class="rounded-lg bg-cyan-50 px-2.5 py-1 text-xs font-bold text-cyan-700">$799 pp</span>
+              <span class="rounded-lg px-2.5 py-1 text-xs font-bold price-chip">$799 pp</span>
             </div>
             <p class="text-xs text-slate-500 italic">Ship: Harmony of the Seas</p>
             <p class="mt-2 text-sm text-slate-600"><strong>Miami</strong> → St. Thomas → San Juan → Perfect Day</p>
@@ -219,7 +258,7 @@
           <div>
             <div class="flex items-center justify-between">
               <h3 class="font-semibold text-slate-900">5-Night Western Caribbean</h3>
-              <span class="rounded-lg bg-cyan-50 px-2.5 py-1 text-xs font-bold text-cyan-700">$549 pp</span>
+              <span class="rounded-lg px-2.5 py-1 text-xs font-bold price-chip">$549 pp</span>
             </div>
             <p class="text-xs text-slate-500 italic">Ship: Carnival Paradise</p>
             <p class="mt-2 text-sm text-slate-600"><strong>Tampa</strong> → Cozumel → Costa Maya</p>
@@ -244,7 +283,7 @@
           <div>
             <div class="flex items-center justify-between">
               <h3 class="font-semibold text-slate-900">10-Night Southern Caribbean</h3>
-              <span class="rounded-lg bg-cyan-50 px-2.5 py-1 text-xs font-bold text-cyan-700">$1,099 pp</span>
+              <span class="rounded-lg px-2.5 py-1 text-xs font-bold price-chip">$1,099 pp</span>
             </div>
             <p class="text-xs text-slate-500 italic">Ship: Celebrity Summit</p>
             <p class="mt-2 text-sm text-slate-600"><strong>San Juan</strong> → Aruba → Curaçao → Barbados</p>
@@ -269,7 +308,7 @@
           <div>
             <div class="flex items-center justify-between">
               <h3 class="font-semibold text-slate-900">4-Night Bahamas Quick Escape</h3>
-              <span class="rounded-lg bg-cyan-50 px-2.5 py-1 text-xs font-bold text-cyan-700">$399 pp</span>
+              <span class="rounded-lg px-2.5 py-1 text-xs font-bold price-chip">$399 pp</span>
             </div>
             <p class="text-xs text-slate-500 italic">Ship: Norwegian Sky</p>
             <p class="mt-2 text-sm text-slate-600"><strong>Port Canaveral</strong> → Nassau → Private Island</p>
