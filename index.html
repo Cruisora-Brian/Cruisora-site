@@ -171,24 +171,31 @@
     }
     .hero-collage-photo{
       position: absolute;
-      top: -12%;
-      right: -14%;
-      width: 68%;
-      transform: rotate(7deg);
-      z-index: 1;
+      top: -4%;
+      right: -22%;
+      width: 78%;
+      transform: rotate(5deg);
+      z-index: 4;
     }
     @media (max-width: 640px){
       .hero-collage-photo{
-        top: -6%;
-        right: -4%;
-        width: 74%;
+        top: 4%;
+        right: -10%;
+        width: 82%;
+      }
+    }
+    @media (min-width: 1024px){
+      .hero-collage-photo{
+        top: -2%;
+        right: -28%;
+        width: 84%;
       }
     }
     .hero-collage-alert{
       position: absolute;
-      left: 12%;
-      bottom: -4.5rem;
-      z-index: 3;
+      left: -4%;
+      bottom: -4.25rem;
+      z-index: 6;
       display: flex;
       flex-direction: column;
       gap: .4rem;
@@ -220,7 +227,7 @@
     }
     @media (min-width: 768px){
       .hero-collage-alert{
-        bottom: -5.25rem;
+        bottom: -5rem;
         padding: 1.35rem 2rem;
       }
       .hero-collage-alert-body{
@@ -229,14 +236,14 @@
     }
     @media (min-width: 1024px){
       .hero-collage-alert{
-        left: 18%;
+        left: 2%;
       }
     }
     @media (max-width: 480px){
       .hero-collage-alert{
-        left: 6%;
-        bottom: -3.25rem;
-        width: min(88%, 320px);
+        left: 2%;
+        bottom: -3rem;
+        width: min(90%, 320px);
         padding: .95rem 1.4rem;
       }
       .hero-collage-alert-body{
