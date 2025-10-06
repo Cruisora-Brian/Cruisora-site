@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cruisora FAQs</title>
+  <meta name="description" content="Answers to the most common questions about Cruisora's cruise discovery app, features, and waitlist." />
+  <link rel="canonical" href="https://cruisora.com/faq" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cruisora FAQs" />
+  <meta property="og:description" content="Find answers about the Cruisora app beta, pricing alerts, and how we personalize cruise matches." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop" />
+  <meta property="og:image:alt" content="Cruise ship in turquoise Caribbean water" />
+  <meta property="og:url" content="https://cruisora.com/faq" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#0b1f44;
+      --brand-ink:#0a162e;
+      --accent:#14c7e8;
+      --accent-strong:#0bb0cf;
+      --accent-soft:#8ee8f7;
+      --ink:#0b1220;
+      --brand-faint: rgba(11,31,68,0.06);
+    }
+    h1, h2, h3, h4, .heading {
+      font-family: "DM Sans", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--brand);
+    }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, "DM Sans", system-ui, sans-serif;
+      color: var(--brand-ink);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      background-color: #ffffff;
+    }
+    .hero-bg{
+      background:
+        radial-gradient(800px 400px at 10% -10%, rgba(20,199,232,.18), transparent),
+        radial-gradient(900px 500px at 110% 10%, rgba(11,31,68,.70), rgba(11,31,68,.95));
+      position: relative;
+      isolation: isolate;
+    }
+    .hero-bg::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, rgba(5,12,26,.88) 0%, rgba(5,14,30,.82) 45%, rgba(11,31,68,.55) 75%, rgba(20,199,232,.15) 100%);
+      z-index: 0;
+    }
+    .hero-bg > *{ position: relative; z-index: 1; }
+    .hero-copy{
+      background: linear-gradient(140deg, rgba(8,21,46,.86), rgba(8,28,54,.78));
+      border-radius: 1.75rem;
+      padding: 2.25rem;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 30px 70px rgba(4,11,24,.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .hero-copy h1{ color: #f6fbff; }
+    .hero-copy p{ color: rgba(255,255,255,.9); }
+    details[open] summary svg {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white">
+  <header class="border-b border-slate-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/cruisoralogo.png" alt="Cruisora logo" class="h-9 w-auto">
+      </a>
+      <nav class="hidden sm:flex gap-6 text-sm items-center">
+        <span class="text-slate-500">The <strong>app</strong> for smarter cruise shopping</span>
+        <a href="index.html#waitlist" class="hover:underline text-slate-700 font-semibold">Join Waitlist</a>
+        <a href="index.html#how" class="hover:underline text-slate-700 font-semibold">How It Works</a>
+        <a href="#" class="text-slate-300 pointer-events-none font-semibold">Download (coming soon)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <section class="hero-bg">
+      <div class="mx-auto max-w-4xl px-4 py-16 text-center text-slate-100 sm:py-20">
+        <div class="hero-copy mx-auto flex max-w-3xl flex-col gap-4 text-left sm:text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent-soft">FAQ</p>
+          <h1 class="text-3xl sm:text-4xl">Frequently Asked Questions</h1>
+          <p class="text-base leading-relaxed text-white/85">Quick answers about the Cruisora beta, pricing intelligence, and what to expect when you sail with smarter insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-4xl space-y-6 px-4 py-16 text-slate-700">
+      <div class="space-y-4 text-left">
+        <p class="text-lg text-slate-600">Tap any question below to reveal the details. Still curious? Reach us anytime at <a class="text-accent hover:underline" href="mailto:hello@cruisora.com">hello@cruisora.com</a>.</p>
+      </div>
+
+      <div class="space-y-4">
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>What is Cruisora and who is it for?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>Cruisora is a cruise discovery companion designed for travelers who want more than a simple price calendar. We combine real-time fares, ship amenities, and traveler preferences to surface itineraries that match your budget, vibe, and accessibility needs.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>How does the beta waitlist work?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>Join the waitlist with your email and preferred cruise lines. We invite new members in waves so we can onboard with concierge support. When it is your turn, you will receive an email with app download instructions and tips for getting the most from your trial.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>Do you cover every cruise line and ship?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>We track the major ocean and river cruise brands sailing from North America and Europe. Smaller expedition lines roll out on a quarterly basis. If a specific ship is missing, drop us a note and we will add it to our sourcing queue.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>What makes your price alerts different?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>Instead of alerting every small dip, Cruisora analyzes historical pricing, cabin availability, and onboard credit promotions. We only ping you when there is a meaningful savings opportunity or a new perk that matches your saved preferences.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>Can I plan with friends or family inside the app?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>Yes! Shared boards let you compare itineraries with your crew, vote on ships, and split cabins into easy-to-read summaries. You can also export a group brief that includes stateroom layouts, dining options, and activity highlights.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>How does Cruisora personalize cruise matches?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>We ask for your sail month flexibility, preferred cabin category, mobility considerations, and onboard interests. Our recommendation engine then blends ship reviews, itinerary pacing, and price-per-night to highlight sailings that feel tailor-made.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>Is there a cost to use Cruisora?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>The beta is free while we gather feedback. When we launch publicly there will be a generous free tier plus a premium plan that unlocks concierge booking support, cabin upgrade forecasts, and exclusive deals.</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-accent/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-left text-lg font-semibold text-slate-800">
+            <span>How do I contact support if I hit an issue?</span>
+            <svg class="h-5 w-5 text-accent transition" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-slate-600">
+            <p>Email <a class="text-accent hover:underline" href="mailto:support@cruisora.com">support@cruisora.com</a> or send feedback through the in-app concierge chat. We typically respond within one business day and escalate urgent travel needs immediately.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600">
+      <p>© <span id="y"></span> cruisora • <a class="hover:underline" href="privacy.html">Privacy</a> • <a class="hover:underline" href="terms.html">Terms</a> • <a class="hover:underline" href="faq.html">FAQs</a></p>
+      <p class="mt-2 text-slate-500">Return to the <a class="hover:underline" href="index.html">home page</a>.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
