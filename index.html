@@ -75,34 +75,6 @@
     .btn-primary:hover{ filter: brightness(.97) }
     .btn-primary:active{ transform: translateY(1px) }
 
-    /* Social icons */
-    .social-link{
-      width: 2.35rem;
-      height: 2.35rem;
-      border-radius: 9999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(140deg, rgba(20,199,232,.22), rgba(11,31,68,.9));
-      color: #f5fbff;
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 12px 28px rgba(11,31,68,.18);
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-    .social-link svg{
-      width: 1.15rem;
-      height: 1.15rem;
-    }
-    .social-link:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(11,31,68,.24);
-      opacity: .9;
-    }
-    .social-link:focus-visible{
-      outline: 2px solid rgba(20,199,232,.58);
-      outline-offset: 3px;
-    }
-
     /* Mailchimp form tidy + compact spacing */
     #mc_embed_signup{
       background: transparent;
@@ -793,33 +765,31 @@
           <a class="hover:underline" href="#">Affiliate Disclosure</a>
         </nav>
       </div>
-      <div class="flex items-center gap-3 self-end sm:self-auto">
-        <a class="social-link" href="https://www.instagram.com/cruisora" aria-label="Instagram">
+      <div class="flex items-center gap-3 self-end text-slate-500 sm:self-auto">
+        <a class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 transition hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/60 focus:ring-offset-2 focus:ring-offset-white" href="https://www.instagram.com/cruisora" aria-label="Instagram" target="_blank" rel="noreferrer">
           <span class="sr-only">Instagram</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-            <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.4" stroke="currentColor" stroke-width="1.5" />
-            <circle cx="12" cy="12" r="3.35" stroke="currentColor" stroke-width="1.5" />
-            <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none">
+            <rect x="4" y="4" width="16" height="16" rx="4.5" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="17" cy="7" r="1" fill="currentColor" />
           </svg>
         </a>
-        <a class="social-link" href="https://www.tiktok.com/@cruisora" aria-label="TikTok">
+        <a class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 transition hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/60 focus:ring-offset-2 focus:ring-offset-white" href="https://www.tiktok.com/@cruisora" aria-label="TikTok" target="_blank" rel="noreferrer">
           <span class="sr-only">TikTok</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-            <path d="M14.5 4.5c.63.84 1.5 1.5 2.54 1.83.4.12.81.19 1.2.2v3.16a6.94 6.94 0 0 1-3.53-1.08v6.02c0 3-2.32 5.45-5.3 5.45S4.1 17.63 4.1 14.66c0-3.03 2.33-5.48 5.31-5.48.37 0 .73.04 1.08.12v2.74a2.55 2.55 0 0 0-1.08-.25 2.54 2.54 0 0 0-2.54 2.54 2.54 2.54 0 0 0 2.54 2.54 2.55 2.55 0 0 0 2.55-2.55V3h3.42v1.5z" fill="currentColor" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
+            <path d="M15 4.5a4.5 4.5 0 0 0 3 2.6v2.3a6 6 0 0 1-3-.9v6.4a4.9 4.9 0 1 1-4.9-4.9c.3 0 .6.03.9.08v2.4a2.5 2.5 0 1 0 2-2.4V3h2z" />
           </svg>
         </a>
-        <a class="social-link" href="https://www.x.com/cruisoraapp" aria-label="X">
+        <a class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 transition hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/60 focus:ring-offset-2 focus:ring-offset-white" href="https://www.x.com/cruisoraapp" aria-label="X" target="_blank" rel="noreferrer">
           <span class="sr-only">X</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-            <path d="M5 5.25h3.02l4.18 5.76 4.67-5.76H22l-6.73 7.88L22.5 19h-3.06l-4.46-6.06L9.78 19H2l7.2-8.43L5 5.25z" fill="currentColor" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
+            <path d="M5 5h3.2l4.2 5.7L17.3 5H22l-6.8 8 6.9 9H19l-4.5-6-4.2 6H2l7.1-8.4L5 5z" />
           </svg>
         </a>
-        <a class="social-link" href="#" aria-label="LinkedIn">
+        <a class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 transition hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/60 focus:ring-offset-2 focus:ring-offset-white" href="https://www.linkedin.com/company/cruisora" aria-label="LinkedIn" target="_blank" rel="noreferrer">
           <span class="sr-only">LinkedIn</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-            <rect x="3.5" y="4" width="17" height="16" rx="2.6" stroke="currentColor" stroke-width="1.4" />
-            <circle cx="7.7" cy="8.3" r="1.4" fill="currentColor" />
-            <path d="M7 18.1v-6.4h2.6v6.4H7zm5.1 0v-6.4h2.5l.1 1.1c.58-.86 1.48-1.3 2.59-1.3 1.95 0 3.35 1.3 3.35 3.79v2.8H18V15c0-1.13-.54-1.79-1.5-1.79-.98 0-1.66.7-1.66 1.85v3.05H12.1z" fill="currentColor" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
+            <path d="M5.2 8.2a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm-.9 2.1h3.6V19H4.3v-8.7zm5.7 0h3.4v1.2c.5-.8 1.6-1.4 2.8-1.4 2.6 0 4.2 1.7 4.2 4.7V19h-3.6v-4c0-1.3-.6-2-1.7-2-1.1 0-1.8.7-1.8 2.2V19h-3.3v-8.7z" />
           </svg>
         </a>
       </div>
