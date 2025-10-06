@@ -154,19 +154,32 @@
     .hero-carousel{
       width: min(100%, 540px);
       position: relative;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    @media (min-width: 768px){
+      .hero-carousel{ min-height: 520px; }
     }
     .hero-carousel-track{
-      display: flex;
-      transition: transform .6s ease;
-      will-change: transform;
-      overflow: visible;
+      position: relative;
+      height: 100%;
       touch-action: pan-y;
     }
     .hero-slide{
-      flex: 0 0 100%;
+      position: absolute;
+      inset: 0;
       display: flex;
       justify-content: center;
       padding-bottom: 3rem;
+      transition: transform .6s ease, opacity .6s ease;
+      will-change: transform, opacity;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .hero-slide:first-child{
+      position: relative;
+      opacity: 1;
+      pointer-events: auto;
     }
     .hero-carousel-nav{
       display: flex;
@@ -234,7 +247,7 @@
     }
     @media (min-width: 768px){
       .hero-media .newsletter-inbox{
-        transform: rotateX(8deg) rotateY(-12deg);
+        transform: rotateX(8deg) rotateY(12deg);
       }
     }
     @media (min-width: 1024px){
@@ -242,7 +255,7 @@
         perspective: 2000px;
       }
       .hero-media .newsletter-inbox{
-        transform: rotateX(10deg) rotateY(-16deg);
+        transform: rotateX(10deg) rotateY(16deg);
       }
     }
     .hero-photo-card{
@@ -776,9 +789,29 @@
       const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const autoplayEnabled=carousel.hasAttribute('data-autoplay')&&!prefersReduced;
 
+      const updateHeight=()=>{
+        const active=slides[index];
+        if(!active) return;
+        carousel.style.height=`${active.offsetHeight}px`;
+      };
+
+      const setPositions=()=>{
+        slides.forEach((slide,i)=>{
+          const offset=i-index;
+          slide.style.position='absolute';
+          slide.dataset.state=offset===0?'active':'inactive';
+          slide.style.opacity=offset===0?'1':'0';
+          slide.style.pointerEvents=offset===0?'auto':'none';
+          slide.style.transform=`translateY(${offset*110}%)`;
+          slide.style.zIndex=String(slides.length-Math.abs(offset));
+        });
+        updateHeight();
+        requestAnimationFrame(updateHeight);
+      };
+
       const setSlide=(nextIndex)=>{
         index=(nextIndex+slides.length)%slides.length;
-        track.style.transform=`translateX(-${index*100}%)`;
+        setPositions();
         dots.forEach((dot,i)=>{
           dot.setAttribute('aria-current', i===index ? 'true' : 'false');
         });
@@ -797,21 +830,21 @@
       next?.addEventListener('click',()=>{goNext(); restartAutoplay();});
       dots.forEach((dot,i)=>dot.addEventListener('click',()=>{setSlide(i); restartAutoplay();}));
 
-      // Swipe gestures
+      // Swipe gestures (vertical)
       let pointerActive=false;
-      let startX=0;
-      let deltaX=0;
+      let startY=0;
+      let deltaY=0;
       track.addEventListener('pointerdown',(event)=>{
         pointerActive=true;
-        startX=event.clientX;
-        deltaX=0;
+        startY=event.clientY;
+        deltaY=0;
         if(track.setPointerCapture){
           track.setPointerCapture(event.pointerId);
         }
       });
       track.addEventListener('pointermove',(event)=>{
         if(!pointerActive) return;
-        deltaX=event.clientX-startX;
+        deltaY=event.clientY-startY;
       });
       const endPointer=(event)=>{
         if(!pointerActive) return;
@@ -819,14 +852,18 @@
         if(track.hasPointerCapture&&track.hasPointerCapture(event.pointerId)){
           track.releasePointerCapture(event.pointerId);
         }
-        if(Math.abs(deltaX)>40){
-          deltaX>0?goPrev():goNext();
+        if(Math.abs(deltaY)>40){
+          deltaY>0?goPrev():goNext();
           restartAutoplay();
         }
-        deltaX=0;
+        deltaY=0;
       };
       track.addEventListener('pointerup',endPointer);
       track.addEventListener('pointercancel',endPointer);
+
+      window.addEventListener('resize',()=>{
+        requestAnimationFrame(updateHeight);
+      });
 
       document.addEventListener('visibilitychange',()=>{
         if(!autoplayEnabled) return;
@@ -838,6 +875,7 @@
       });
 
       setSlide(0);
+      window.addEventListener('load',()=>requestAnimationFrame(updateHeight));
       restartAutoplay();
     })();
   </script>
